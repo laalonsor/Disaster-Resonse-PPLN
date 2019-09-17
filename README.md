@@ -22,3 +22,18 @@ Prediction and Visualization Making a web app for prediction and visualization, 
     `python run.py`
 
 3. Go to http://0.0.0.0:3001/
+
+### This repositroy is structured as follow:
+## Files:
+1. Jupiter Notebook "ETL Pipeline Preparation" which was used to complete the file "process data.py"
+2. Jupiter Notebook "ML Pipeline Preparation" which was used to complete the file "train classifier.py"
+3. Python files
+
+## Folders:
+../app - folder for web app
+../app/run.py - flask web app
+../templates - .html templates
+
+## Datasets:
+../data/disaster_categories.csv - file containing categories
+../data/disaster_messages.csv - file containing messages
