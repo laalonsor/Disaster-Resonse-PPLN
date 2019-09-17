@@ -43,6 +43,11 @@ def index():
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
+    y = df.drop(['id', 'message', 'original', 'genre'], axis=1).astype(float)
+    cat_names = y.columns.values
+    cat_counts = [sum(y[x]) for x in cat_names]
+    corr = y.corr()
+    labels = y.columns.values
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -64,6 +69,38 @@ def index():
                     'title': "Genre"
                 }
             }
+        },
+        {
+            'data': [
+                Bar(
+                    x=cat_names,
+                    y=cat_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Genre"
+                }
+            }
+        },
+        {
+            'data': [
+                Heatmap(
+                    z=corr.values,
+                    x=labels,
+                    y=labels
+                )
+            ],
+
+            'layout': {
+                'title': 'Categories Correlation',
+                'height': 1000
+            }
         }
     ]
     
@@ -73,7 +110,6 @@ def index():
     
     # render web page with plotly graphs
     return render_template('master.html', ids=ids, graphJSON=graphJSON)
-
 
 
 # web page that handles user query and displays model results
