@@ -37,3 +37,15 @@ Prediction and Visualization Making a web app for prediction and visualization, 
 ## Datasets:
 ../data/disaster_categories.csv - file containing categories
 ../data/disaster_messages.csv - file containing messages
+
+## Models:
+../models - folder for the classifier model and pickle file
+../models/train_classifier.py - model training script
+../models/classifier.pkl - saved model when running python train_classifier.py
+
+## Processing:
+../data/process_data.py
+../data/disaster_response.db - database created when running python process_data.py
+../data/DisasterResponse.db - database for the clean data
+
+## README.md
